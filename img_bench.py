@@ -127,8 +127,6 @@ def main():
     if not pic_list:
         print("Ошибка: Тестовые файлы отсутствуют!")
         return
-
-    print("=== Начало сравнительных тестов ===")
     
     print("Выполнение: Последовательный алгоритм...")
     seq_time = sequential_process(pic_list)
@@ -141,18 +139,6 @@ def main():
     print("Выполнение: Асинхронный asyncio...")
     async_time = async_concurrency(pic_list)
     print(f"Асинхронный режим: {async_time:.4f} с.\n")
-    
-    print("--------------------------------------------------")
-    print("                РЕЗУЛЬТАТЫ АНАЛИЗА                ")
-    print("--------------------------------------------------")
-    print(f"Количество файлов   : {len(pic_list)} шт.")
-    print(f"Конечный формат     : 800x600, Lanczos, Grayscale")
-    print("--------------------------------------------------")
-    print(f"1. Последовательно  : {seq_time:.4f} с.")
-    print(f"2. Пул процессов    : {mp_time:.4f} с. (Ускорение: {seq_time / mp_time:.2f}x)")
-    print(f"3. Асинхронно (GIL) : {async_time:.4f} с. (Ускорение: {seq_time / async_time:.2f}x)")
-    print("--------------------------------------------------")
-
 
 if __name__ == "__main__":
     multiprocessing.freeze_support()
