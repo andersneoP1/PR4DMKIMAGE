@@ -1,0 +1,6 @@
+source_images/
+processed/
+__pycache__/
+.idea/
+.vscode/
+*.pyc
